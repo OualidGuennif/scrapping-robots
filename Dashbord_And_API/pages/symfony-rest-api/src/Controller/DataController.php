@@ -19,10 +19,15 @@ class DataController extends AbstractController
     {
         try{
             $post =$serializer ->deserialize($request -> getContent(), Data::class, 'json');
-            $post -> setTask($task -> find(json_decode($request->getContent(),true)["task"]));
 
+            $task = $task -> find(json_decode($request->getContent(),true)["task"]);
+            $task -> setState("terminé");
+            $post -> setTask($task);
+
+            $em -> persist($task);
             $em -> persist($post);
             $em -> flush();
+
 
             return $this -> json([
                 'status' => 201
