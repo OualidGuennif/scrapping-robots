@@ -65,7 +65,7 @@
 										<tbody>
 										{% for data in datas %}
 											<tr>
-												<td>{{data.task.date | date('d-m-Y')}}</td>
+												<td>{{data.task.date | date('d-m-Y H:i:s')}}</td>
 												<td>{{data.log}}</td>
 											</tr>
 										{% endfor %}
