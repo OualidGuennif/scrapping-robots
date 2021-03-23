@@ -2,10 +2,12 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\DataRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ApiResource()
  * @ORM\Entity(repositoryClass=DataRepository::class)
  */
 class Data

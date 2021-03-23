@@ -19,6 +19,10 @@ class TaskRepository extends ServiceEntityRepository
         parent::__construct($registry, Task::class);
     }
 
+    public function getPendingTasks(){
+        return $this -> findBy(array('state' => 'en attente'));
+    }
+
     // /**
     //  * @return Task[] Returns an array of Task objects
     //  */
