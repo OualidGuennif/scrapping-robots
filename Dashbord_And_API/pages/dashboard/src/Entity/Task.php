@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=TaskRepository::class)
+ * @ORM\Table(name="`task`")
  */
 class Task
 {
@@ -20,12 +21,12 @@ class Task
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="`state`")
      */
     private $state;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(name="`loop`")
      */
     private $loop;
 
@@ -48,6 +49,8 @@ class Task
     public function __construct()
     {
         $this->data = new ArrayCollection();
+        $this->date = new \DateTime();
+        $this->state = "pending";
     }
 
     public function getId(): ?int
@@ -84,6 +87,9 @@ class Task
         return $this->date;
     }
 
+    private function setDefaultDate(){
+
+    }
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
