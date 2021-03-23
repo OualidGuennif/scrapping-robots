@@ -1,0 +1,9 @@
+version: '3'
+services:
+  watcher:
+    image: 'wallseven/watcher:latest'
+    container_name: watcher_container
+    env_file:
+      - environment
+    volumes:
+      - './opt/robots/:/opt/robots/'

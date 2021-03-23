@@ -6,7 +6,7 @@ __pycache__/
 *$py.class
 
 # C extensions
-#*.so (needed for watcher)
+*.so 
  
 # Distribution / packaging
 .Python
@@ -101,7 +101,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
+
 .venv
 env/
 venv/
