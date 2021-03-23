@@ -45,6 +45,7 @@ class Task
     /**
      * @ORM\ManyToOne(targetEntity=Robot::class, inversedBy="task")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("post:read")
      */
     private $robot;
 
