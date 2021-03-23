@@ -1,8 +1,8 @@
 version: '3.3'
 services:
   php-nginx:
-    image: 'nginx-php:latest'
-    container_name: nginx-php-container
+    image: 'nginx-php-scraping:latest'
+    container_name: nginx-php-container-dashboard
     volumes:
       - './pages/dashboard:/var/www/html'
       - './conf/nginx.conf:/etc/nginx/nginx.conf'
@@ -21,7 +21,7 @@ services:
     - './conf/docker-mysql.cnf:/etc/mysql/conf.d/docker-mysql.cnf:ro'
     - './mysql/data:/var/lib/mysql'
   php-nginx-api:
-    image: 'nginx-php:latest'
+    image: 'nginx-php-scraping:latest'
     container_name: nginx-php-container-api
     volumes:
       - './pages/symfony-rest-api:/var/www/html'

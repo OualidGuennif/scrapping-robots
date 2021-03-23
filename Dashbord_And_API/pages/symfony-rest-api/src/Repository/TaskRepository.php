@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Task;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use phpDocumentor\Reflection\Types\Array_;
 
 /**
  * @method Task|null find($id, $lockMode = null, $lockVersion = null)
@@ -17,6 +18,14 @@ class TaskRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Task::class);
+    }
+
+    public function getPendingTasks(){
+        $result = $this -> findBy(array('state' => 'pending'));
+        if($result instanceof Array_){
+            return $result[0];
+        }
+        return $result;
     }
 
     // /**

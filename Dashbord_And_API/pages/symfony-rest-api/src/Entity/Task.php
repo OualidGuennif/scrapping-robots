@@ -6,6 +6,7 @@ use App\Repository\TaskRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=TaskRepository::class)
@@ -16,6 +17,7 @@ class Task
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
@@ -26,6 +28,7 @@ class Task
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $loop;
 
@@ -42,6 +45,7 @@ class Task
     /**
      * @ORM\ManyToOne(targetEntity=Robot::class, inversedBy="task")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("post:read")
      */
     private $robot;
 
