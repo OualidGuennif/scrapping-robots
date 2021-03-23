@@ -4,6 +4,6 @@ services:
     image: 'wallseven/watcher:latest'
     container_name: watcher_container
     env_file:
-      - environment
+      - envfile
     volumes:
-      - './opt/robots/:/opt/robots/'
+      - './test-dynamique/:/opt/robots/'

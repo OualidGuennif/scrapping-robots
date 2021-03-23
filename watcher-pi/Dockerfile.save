@@ -28,8 +28,7 @@ RUN wget https://archive.raspberrypi.org/debian/pool/main/w/widevine/libwidevine
 RUN dpkg -i libwidevinecdm0_4.10.1679.0-1_armhf.deb
 
 RUN apt autoremove
-RUN apt clean
-
+RUN
 
 COPY ./requirements.txt /tmp
 RUN pip3 install -r /tmp/requirements.txt
