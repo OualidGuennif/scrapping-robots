@@ -1,10 +1,10 @@
-from ubuntu
+from ubuntu:focal
 
 RUN apt-get update && apt-get install -y apt-utils
 RUN apt update && apt install -y 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata 
 
-//Veuillez laisser l'entrée chromium-browser nous récupérons des librairies utiles pour la suite
+#Veuillez laisser l'entrée chromium-browser nous récupérons des librairies utiles pour la suite
 RUN apt-get update && apt-get install -y xvfb gcc xdg-utils python3 python3-pip nano wget vim  chromium-browser
 
 
@@ -26,6 +26,9 @@ RUN wget https://archive.raspberrypi.org/debian/pool/main/c/chromium-browser/chr
 RUN dpkg -i chromium-browser-l10n_88.0.4324.187-rpt1_all.deb
 RUN wget https://archive.raspberrypi.org/debian/pool/main/w/widevine/libwidevinecdm0_4.10.1679.0-1_armhf.deb
 RUN dpkg -i libwidevinecdm0_4.10.1679.0-1_armhf.deb
+
+RUN apt autoremove
+RUN apt clean
 
 
 COPY ./requirements.txt /tmp
