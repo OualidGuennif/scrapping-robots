@@ -138,4 +138,9 @@ class Task
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return ($this -> date )->format('Y-m-d H:i:s');
+    }
 }

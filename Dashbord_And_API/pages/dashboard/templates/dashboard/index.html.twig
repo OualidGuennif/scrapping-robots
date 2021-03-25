@@ -104,7 +104,7 @@
 											<tr>
 												<td>{{data.task.date | date('d-m-Y H:i:s')}}</td>
 												<td>{{ data.task.robot.category }}</td>
-												<td>{{data.log}}</td>
+												<td>{{data.log | replace({';':"<br/>"})| raw  }}</td>
 											</tr>
 										{% endfor %}
 										</tbody>
@@ -126,8 +126,8 @@
 {% endblock %}
 
 {% block javascripts %}
-	<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
-	<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 	<script src="{{ asset('js/myDataTable.js') }}"></script>
 {% endblock %}
 

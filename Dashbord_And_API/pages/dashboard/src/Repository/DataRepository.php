@@ -9,7 +9,6 @@ use Doctrine\Persistence\ManagerRegistry;
 /**
  * @method Data|null find($id, $lockMode = null, $lockVersion = null)
  * @method Data|null findOneBy(array $criteria, array $orderBy = null)
- * @method Data[]    findAll()
  * @method Data[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class DataRepository extends ServiceEntityRepository
@@ -19,6 +18,10 @@ class DataRepository extends ServiceEntityRepository
         parent::__construct($registry, Data::class);
     }
 
+    public function findAll()
+    {
+        return $this->findBy(array(), array('task' => 'DESC'));
+    }
     // /**
     //  * @return Data[] Returns an array of Data objects
     //  */

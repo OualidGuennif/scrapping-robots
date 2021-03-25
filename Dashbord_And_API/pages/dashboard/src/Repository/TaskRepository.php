@@ -9,7 +9,6 @@ use Doctrine\Persistence\ManagerRegistry;
 /**
  * @method Task|null find($id, $lockMode = null, $lockVersion = null)
  * @method Task|null findOneBy(array $criteria, array $orderBy = null)
- * @method Task[]    findAll()
  * @method Task[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class TaskRepository extends ServiceEntityRepository
@@ -19,6 +18,10 @@ class TaskRepository extends ServiceEntityRepository
         parent::__construct($registry, Task::class);
     }
 
+    public function findAll()
+    {
+        return $this->findBy(array(), array('date' => 'DESC'));
+    }
     // /**
     //  * @return Task[] Returns an array of Task objects
     //  */
