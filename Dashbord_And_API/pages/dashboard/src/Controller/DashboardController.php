@@ -28,11 +28,13 @@ class DashboardController extends AbstractController
                 $em = $this -> getDoctrine() -> getManager();
                 $em -> persist($task);
                 $em->flush();
+                return $this -> redirectToRoute('dashboard');
             }
         }
         return $this->render('dashboard/index.html.twig', [
             'formTask' => $formTask ->createView(),
-            'datas' => $subjects = $this->getDoctrine()->getRepository(Data::class) -> findAll(),
+            'datas' => $this->getDoctrine()->getRepository(Data::class) -> findAll(),
+            'pendingTasks' => $this->getDoctrine()->getRepository(Task::class) -> findBy(array('state' => 'pending')),
             'controller_name' => 'DashboardController',
         ]);
     }
