@@ -64,16 +64,18 @@
 										<thead>
 										<tr>
 											<th>Date</th>
-											<th>Execution(s)</th>
 											<th>Robot</th>
+											<th>Etat</th>
+											<th>Execution(s)</th>
 										</tr>
 										</thead>
 										<tbody>
-										{% for pendingTask in pendingTasks %}
+										{% for task in tasks %}
 											<tr>
-												<td>{{ pendingTask.date | date('d-m-Y H:i:s') }}</td>
-												<td>{{ pendingTask.loop }}</td>
-												<td>{{ pendingTask.robot }}</td>
+												<td>{{ task.date | date('d-m-Y H:i:s') }}</td>
+												<td>{{ task.robot }}</td>
+												<td>{{ task.state }}</td>
+												<td>{{ task.loop }}</td>
 											</tr>
 										{% endfor %}
 										</tbody>
