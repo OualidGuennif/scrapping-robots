@@ -104,7 +104,7 @@
 											<tr>
 												<td>{{data.task.date | date('d-m-Y H:i:s')}}</td>
 												<td>{{ data.task.robot.category }}</td>
-												<td>{{data.log | replace({';':"<br/>"})| raw  }}</td>
+												<td>{{data.log | replace({'\\n':"<br/>"})| raw  }}</td>
 											</tr>
 										{% endfor %}
 										</tbody>
